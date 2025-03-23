@@ -1,0 +1,90 @@
+/* styles/Header.module.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+.header {
+  background-color: #3b3b3b;
+  color: white;
+  padding: 0.75rem 2rem;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  font-family: 'Roboto', sans-serif;
+  transition: top 0.6s ease; /* Smooth show/hide animation */
+}
+
+.show {
+  top: 0;
+}
+
+.hide {
+  top: -100px; /* Moves the header out of view when hidden */
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: 5px; /* Align logo to the far left */
+  margin-left: 0;
+  padding-left: 0;
+  margin-top: 0px;
+}
+
+.brandName {
+    margin-left: 15px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #be2727;
+}
+
+.brandHighlight {
+  color: #fbc02d; /* Highlight color for "Phoenix Labs" */
+  font-weight: 700;
+}
+
+.nav {
+  display: flex;
+  gap: 1.8rem; /* Equal spacing between links */
+  align-items: center;
+  margin-left: 15px;
+}
+
+.link {
+  color: #d1d1d1;
+  font-size: 1.2rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 300;
+  transition: color 0.3s, transform 0.3s;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #ffffff;
+  transform: translateY(-2px); /* Adds a slight upward movement on hover */
+}
+
+.specialButton {
+  background-color: #585858;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  font-size: 0.95rem;
+  color: #fbc02d;
+  font-weight: 500;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.specialButton:hover {
+  background-color: #4a4a4a;
+  color: #ffd54f;
+  transform: translateY(-2px); /* Adds a slight upward movement on hover */
+}

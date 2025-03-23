@@ -1,0 +1,21 @@
+/* styles/Footer.module.css */
+
+.footer {
+    background-color: #333;
+    color: #ccc;
+    padding: 2rem;
+    text-align: center;
+    background-attachment: fixed;
+
+  }
+  
+  .footer a {
+    color: #ccc;
+    margin: 0 0.5rem;
+    transition: color 0.2s;
+  }
+  
+  .footer a:hover {
+    color: #fff;
+  }
+  

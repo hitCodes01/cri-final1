@@ -1,0 +1,77 @@
+/* General Styles */
+.resources-overview {
+    background-image: url('/bg2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  
+  .section-heading {
+    color: #333;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  .fade-in-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Resource Card Styles */
+  .resource-card {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    padding: 80px 40px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    /* background-attachment: fixed; */
+  }
+  
+  .resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .bg-overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    color: #fff;
+  }
+  
+  /* Specific Backgrounds for Sections */
+  .learning-modules {
+    background-image: url('/learning-bg.jpg');
+  }
+  
+  .workshop-toolkit {
+    background-image: url('/workshop-bg.jpg');
+  }
+  
+  .research-archive {
+    background-image: url('/research-bg.jpeg');
+  }
+  
+  .youth-section {
+    background-image: url('/youth-bg.png');
+  }
+  
+  /* Button Styles */
+  .resource-button {
+    padding: 12px 24px;
+    font-weight: bold;
+    border-radius: 8px;
+    color: #fff;
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+  }
+  
+  .resource-button:hover {
+    transform: translateY(-2px);
+  }
+  

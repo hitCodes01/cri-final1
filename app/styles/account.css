@@ -1,0 +1,123 @@
+/* Dashboard Header */
+.dashboard-header {
+    background-image: url('/account-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* User Info Section */
+  .user-info h2 {
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .user-info p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  /* Dashboard Widgets */
+  .dashboard-card,
+  .support-card,
+  .resource-card {
+    padding: 20px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .dashboard-card:hover,
+  .support-card:hover,
+  .resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  .dashboard-card h3,
+  .support-card h3,
+  .resource-card h3 {
+    font-size: 1.25rem;
+  }
+  
+  .dashboard-card p,
+  .support-card p,
+  .resource-card p {
+    font-size: 0.9rem;
+    color: #666;
+    
+  }
+  
+  /* Buttons */
+  button {
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+  }
+  
+  button:hover {
+    transform: translateY(-2px);
+    background-color: #0056b3;
+  }
+  
+  /* Sections */
+  .dashboard-widgets,
+  .support-section,
+  .resource-library {
+    background-size: cover;
+    background-position: center;
+    padding: 50px 0;
+  }
+  
+  .dashboard-widgets {
+    background-image: url('/widgets-bg.jpg');
+  }
+  
+  .support-section {
+    background-image: url('/support-bg.jpg');
+  }
+  
+  .resource-library {
+    background-image: url('/library-bg.jpg');
+  }
+  /* Hero Section */
+.hero-section {
+    background-image: url('/account-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    background-attachment: fixed;
+  }
+  
+  /* Dashboard Tiles */
+  .dashboard-tile, .support-tile, .resource-tile {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .dashboard-tile:hover, .support-tile:hover, .resource-tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+
+  }
+  
+  .tile-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    font-size: 24px;
+    color: #fff;
+  }
+  

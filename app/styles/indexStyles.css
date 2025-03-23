@@ -1,0 +1,116 @@
+/* Section background images */
+.hero-section {
+  
+    background-image: url('/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  
+  /* Section Background Overlay */
+.intro-section {
+    background-image: url('/mission.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 80px 0;
+    background-attachment: fixed;
+
+  }
+  
+  .intro-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    z-index: 1;
+  }
+  
+  .intro-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Heading Styling */
+  .intro-heading {
+    color: #fff;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Card Styling */
+  .tech-card {
+    cursor: pointer;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .tech-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  }
+  
+  .tech-card h3 {
+    font-size: 1.5rem;
+    /* color: #333; */
+    margin-bottom: 10px;
+  }
+  
+  .tech-card p {
+    color: #555;
+  }
+  
+  /* Card Title Colors */
+  .card-title-blue {
+    color: #3b82f6;
+  }
+  
+  .card-title-green {
+    color: #10b981;
+  }
+  
+  .card-title-purple {
+    color: #a855f7;
+  }
+  
+  .card-title-orange {
+    color: #f97316;
+  }
+  
+  .card-title-red {
+    color: #ef4444;
+  }
+  
+  
+  .data-visualization-section {
+    background-image: url('/data.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+  }
+  
+ 
+  
+  /* Animation for fading effect on page load */
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
+  
+  /* Fade-in animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+ 
