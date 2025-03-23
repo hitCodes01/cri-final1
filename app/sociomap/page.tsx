@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Head from "next/head";
 import Footer from "../components/Footer";
 import { Button } from "../components/ui/button";
@@ -369,14 +369,14 @@ export default function SocialEquityPolicyAdvocacyPage() {
                 }`}>
                   <ReactMarkdown 
                     components={{
-                      h1: ({node, ...props}) => <h1 className="text-2xl font-bold mb-3" {...props} />,
-                      h2: ({node, ...props}) => <h2 className="text-xl font-bold mb-2 mt-4" {...props} />,
-                      h3: ({node, ...props}) => <h3 className="text-lg font-bold mb-2 mt-3" {...props} />,
-                      p: ({node, ...props}) => <p className="mb-3" {...props} />,
-                      ul: ({node, ...props}) => <ul className="list-disc pl-5 mb-3 space-y-1" {...props} />,
-                      ol: ({node, ...props}) => <ol className="list-decimal pl-5 mb-3 space-y-1" {...props} />,
-                      li: ({node, ...props}) => <li className="mb-1" {...props} />,
-                      blockquote: ({node, ...props}) => (
+                      h1: ({...props}) => <h1 className="text-2xl font-bold mb-3" {...props} />,
+                      h2: ({...props}) => <h2 className="text-xl font-bold mb-2 mt-4" {...props} />,
+                      h3: ({...props}) => <h3 className="text-lg font-bold mb-2 mt-3" {...props} />,
+                      p: ({...props}) => <p className="mb-3" {...props} />,
+                      ul: ({...props}) => <ul className="list-disc pl-5 mb-3 space-y-1" {...props} />,
+                      ol: ({...props}) => <ol className="list-decimal pl-5 mb-3 space-y-1" {...props} />,
+                      li: ({...props}) => <li className="mb-1" {...props} />,
+                      blockquote: ({...props}) => (
                         <blockquote className={`border-l-4 pl-4 italic my-3 ${
                           selectedPolicyCategory === "economic-equity" 
                             ? "border-blue-300" 
@@ -412,7 +412,7 @@ export default function SocialEquityPolicyAdvocacyPage() {
                 </div>
                 <h4 className="text-lg font-medium mb-2">No Recommendations Yet</h4>
                 <p className="text-gray-600 mb-4">Enter your community location and description above to receive tailored policy recommendations.</p>
-                <p className="text-sm text-gray-500">Our AI will analyze your community's unique characteristics to generate specific, actionable policy advice.</p>
+                <p className="text-sm text-gray-500">Our AI will analyze your community&apos;s unique characteristics to generate specific, actionable policy advice.</p>
               </div>
             )}
             
