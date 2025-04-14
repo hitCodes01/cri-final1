@@ -3,6 +3,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import Head from "next/head";
+import Image from "next/image"; // Import Next.js Image component
 import Footer from "../components/Footer";
 import { Button } from "../components/ui/button";
 import "../styles/ecoguard.css";
@@ -177,6 +178,7 @@ function Alert({ type, title, message, onClose }: AlertProps) {
         <button
           className={`text-gray-400 hover:text-gray-600`}
           onClick={onClose}
+          aria-label="Close alert"
         >
           ✖
         </button>
@@ -197,12 +199,14 @@ function getAQIColor(aqi: number) {
   }
 }
 
-// Weather Icon component
+// Weather Icon component - now using Next.js Image
 function WeatherIcon({ icon }: { icon: string }) {
   return (
-    <img 
+    <Image 
       src={`http://openweathermap.org/img/wn/${icon}@2x.png`} 
       alt="Weather icon" 
+      width={48}
+      height={48}
       className="w-12 h-12"
     />
   );
@@ -272,8 +276,8 @@ function EnhancedReportSection({ section, index }: { section: ReportSection; ind
     // Now handle lists properly
     if (hasList) {
       // Find all list item groups and wrap them in <ul> tags
-      let parts = [];
-      let currentPart = '';
+      const parts = [];
+      const currentPart = '';
       let inList = false;
       
       // Split by list items
@@ -357,7 +361,7 @@ export default function EnvironmentalPage() {
   const reportCacheRef = useRef<ReportCache>({});
   const prevLocationRef = useRef<string>("");
   
-  const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://ecogurad-backend.vercel.app/api';
+  const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://ecoguard-backend.vercel.app/api';
 
   const options = [
     { id: "air_quality", name: "Air Quality" },
@@ -505,17 +509,12 @@ export default function EnvironmentalPage() {
   async function downloadData() {
     if (!location.trim()) return;
     
-    setLoading(true);
-    setError(null);
-    
     try {
       // This will trigger a file download
       window.open(`${API_BASE_URL}/download?location=${encodeURIComponent(location)}&type=${selectedOption}`);
     } catch (err) {
       console.error('Error downloading data:', err);
       setError(err instanceof Error ? err.message : 'An unknown error occurred');
-    } finally {
-      setLoading(false);
     }
   }
 
@@ -552,6 +551,7 @@ export default function EnvironmentalPage() {
     <div className="text-gray-900 font-sans">
       <Head>
         <title>EcoGuard - Environmental Monitoring & Health</title>
+        <meta name="description" content="Monitor environmental conditions including air quality, water quality, and pollution with EcoGuard." />
       </Head>
 
       {/* Hero Section */}
@@ -573,6 +573,7 @@ export default function EnvironmentalPage() {
               value={location}
               onChange={(e) => setLocation(e.target.value)}
               className="flex-grow px-4 py-2 rounded-lg text-gray-800"
+              aria-label="Location search"
             />
             <Button 
               type="submit"
@@ -608,9 +609,9 @@ export default function EnvironmentalPage() {
 
       {/* Current Conditions Overview */}
       {environmentalData && (
-        <section className="py-8 bg-white">
+        <section className="py-8 bg-white" aria-labelledby="current-conditions-heading">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-6">Current Environmental Conditions</h2>
+            <h2 id="current-conditions-heading" className="text-3xl font-bold text-center mb-6">Current Environmental Conditions</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Weather Card */}
               <div className="bg-gray-50 p-6 rounded-lg shadow-md">
@@ -687,9 +688,9 @@ export default function EnvironmentalPage() {
       )}
 
       {/* Interactive Monitoring Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50" aria-labelledby="monitoring-heading">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8">Environmental Monitoring Dashboard</h2>
+          <h2 id="monitoring-heading" className="text-3xl font-bold text-center mb-8">Environmental Monitoring Dashboard</h2>
           <div className="flex flex-col md:flex-row gap-8">
             <aside className="w-full md:w-1/3 bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-semibold mb-4">Monitoring Options</h3>
@@ -703,6 +704,14 @@ export default function EnvironmentalPage() {
                         ? "bg-blue-500 text-white"
                         : "bg-gray-100 text-gray-800 hover:bg-blue-100"
                     }`}
+                    role="button"
+                    tabIndex={0}
+                    aria-selected={selectedOption === option.id}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        setSelectedOption(option.id);
+                      }
+                    }}
                   >
                     {option.name}
                   </li>
@@ -720,6 +729,14 @@ export default function EnvironmentalPage() {
                         ? "bg-orange-500 text-white"
                         : "bg-gray-100 text-gray-800 hover:bg-orange-100"
                     }`}
+                    role="button"
+                    tabIndex={0}
+                    aria-selected={alertType === alert.id}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        setAlertType(alert.id);
+                      }
+                    }}
                   >
                     {alert.name}
                   </li>
@@ -730,7 +747,7 @@ export default function EnvironmentalPage() {
             <div className="w-full md:w-2/3 bg-white p-8 rounded-lg shadow-md">
               {loading ? (
                 <div className="flex items-center justify-center h-64">
-                  <p className="text-gray-500">Loading data...</p>
+                  <LoadingSpinner />
                 </div>
               ) : (
                 <>
@@ -739,7 +756,7 @@ export default function EnvironmentalPage() {
                       {options.find(o => o.id === selectedOption)?.name} Report
                     </h3>
                   </div>
-                  
+
                   {/* Monitoring Data Display */}
                   {monitoringData && (
                     <div className="mb-6">
