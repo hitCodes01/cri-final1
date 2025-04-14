@@ -361,7 +361,7 @@ export default function EnvironmentalPage() {
   const reportCacheRef = useRef<ReportCache>({});
   const prevLocationRef = useRef<string>("");
   
-  const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://ecoguard-backend.vercel.app/api';
+  const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://ecogurad-backend.vercel.app/api';
 
   const options = [
     { id: "air_quality", name: "Air Quality" },
