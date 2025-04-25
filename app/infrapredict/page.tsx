@@ -13,7 +13,7 @@ import { Loader2, AlertCircle } from "lucide-react";
 import "../styles/infrapredict.css";
 
 // Define API base URL
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001/api";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://infra-pred.vercel.app/api";
 
 // Type definitions
 interface MapLayerData {
@@ -1211,6 +1211,9 @@ export default function InfrastructureResiliencePage() {
       )}
     </div>
   </section>
-</div>)
+
+
   {/* Footer */}
-  <Footer />}
+
+  <Footer />
+  </div>)}
