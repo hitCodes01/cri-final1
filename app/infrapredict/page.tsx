@@ -1,16 +1,15 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Head from "next/head";
 import Footer from "../components/Footer";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
-import { Textarea } from "../components/ui/textarea";
 import { Label } from "../components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "../components/ui/alert";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select";
-import { Loader2, AlertCircle, Check, Info } from "lucide-react";
+import { Loader2, AlertCircle } from "lucide-react";
 import "../styles/infrapredict.css";
 
 // Define API base URL
